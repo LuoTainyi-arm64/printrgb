@@ -1,6 +1,10 @@
 Metadata-Version: 2.4
 Name: printrgb
+<<<<<<< HEAD
 Version: 1.1.4
+=======
+Version: 1.1.5
+>>>>>>> dc8d975 (v1.1.5)
 Summary: Print rainbow text in terminal with true-color
 Author-email: LuoTainyi-arm64 <2153585992@qq.com>
 License: # MIT License
