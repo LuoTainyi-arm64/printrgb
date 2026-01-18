@@ -3,7 +3,7 @@
 from .printrgb import printrgb, get_color_default  # 把核心函数/类导出来
 import sys
 __all__ = ["printrgb", "get_color_default"]
-__version__ = "1.1.2"
+__version__ = "1.1.3"
 
 if __name__ =='__main__':
     printrgb("". join(map(str,sys.argv[1:])), rainbow = 1)
