@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/printrgb/__init__.py
+src/printrgb/__main__.py
+src/printrgb/printrgb.py
+src/printrgb.egg-info/PKG-INFO
+src/printrgb.egg-info/SOURCES.txt
+src/printrgb.egg-info/dependency_links.txt
+src/printrgb.egg-info/entry_points.txt
+src/printrgb.egg-info/top_level.txt

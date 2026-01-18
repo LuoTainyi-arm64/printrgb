@@ -1,0 +1,2 @@
+[console_scripts]
+printrgb = printrgb.__main__:main
