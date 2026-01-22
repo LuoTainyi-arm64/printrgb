@@ -1,5 +1,5 @@
 #!/bin/bash
-ver = 1.1.5
-py -m build
+ver=1.1.6
+python -m build --no-isolation
 pip uninstall printrgb -y
-pip install .\dist\printrgb-${ver}-py3-none-any.whl
+pip install ./dist/printrgb-${ver}-py3-none-any.whl
