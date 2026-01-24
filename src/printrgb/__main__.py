@@ -2,7 +2,7 @@
 import sys
 from . import printrgb
 
-version = "1.1.8"
+version = "1.1.9"
 
 def main() -> None:
     argv = sys.argv
@@ -24,7 +24,7 @@ def main() -> None:
                 swap_fbc: bool = False,
                 allow_rainbow_blank: bool = False(Using it when swap_fbc)'''
             elif argv[1] in ['-v','--version']:
-                ask = f'printrgb {version} by LuoTainyi-arm64'
+                ask = f'printrgb {version} by LuoTianyi-arm64'
         printrgb(ask, rainbow = True)
     if not sys.stdin.isatty():
         printrgb(sys.stdin.read(), rainbow = True)
