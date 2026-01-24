@@ -19,3 +19,5 @@ class printrgb:
         swap_fbc: bool = False,
         allow_rainbow_blank: bool = False,
     ) -> None: ...
+
+

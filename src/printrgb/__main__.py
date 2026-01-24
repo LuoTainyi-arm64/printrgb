@@ -2,7 +2,7 @@
 import sys
 from . import printrgb
 
-version = "1.1.9"
+version = "1.1.10"
 
 def main() -> None:
     argv = sys.argv
@@ -27,7 +27,7 @@ def main() -> None:
                 ask = f'printrgb {version} by LuoTianyi-arm64'
         printrgb(ask, rainbow = True)
     if not sys.stdin.isatty():
-        printrgb(sys.stdin.read(), rainbow = True)
+        printrgb(sys.stdin.buffer.read().decode('utf-8'), rainbow = True)
 
 if __name__ == "__main__":
     main()
