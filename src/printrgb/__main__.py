@@ -2,7 +2,7 @@
 import sys
 from . import printrgb
 
-version = "1.2.1"
+version = "1.2.2"
 
 def main() -> None:
     argv = sys.argv
@@ -22,7 +22,7 @@ def main() -> None:
                 get_color : types.FunctionType | None = None,
                 flush: Literal[False] = False
                 swap_fbc: bool = False,
-                allow_rainbow_blank: bool = False(Using it when swap_fbc)'''
+                allow_rainbow_blank: bool = False(Using it when swap_fbc))'''
             elif argv[1] in ['-v','--version']:
                 ask = f'printrgb {version} by LuoTianyi-arm64'
         printrgb(ask, rainbow = True)

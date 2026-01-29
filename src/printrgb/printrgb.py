@@ -63,59 +63,59 @@ class printrgb:
                 if angle_mode == 'inner':
                     x = 0
                     y = 0
-                    j = ''
+                    temp_string = ''
                     k = 0
-                    p = 0
-                    c = 1
-                    for i in text:
-                        p += 1
-                        if i == '':
-                            j += i
+                    escapt_char_index = 0
+                    escape_character = 1
+                    for current_char in text:
+                        escapt_char_index += 1
+                        if current_char == '':
+                            temp_string += current_char
                             k = 1
                         elif k == 1:
-                            if i == '[':
-                                j += i
+                            if current_char == '[':
+                                temp_string += current_char
                                 k = 2
                                 try:
-                                    if (text[p:p+3] in ['30m','31m','32m','33m','34m','35m','36m','37m','90m','91m','92m','93m','94m','95m','96m','97m','40m','41m','42m','43m','44m','45m','46m','47m']) or (text[p:p+4] in ['100m', '101m', '102m', '103m', '104m', '105m', '106m', '107m']):
-                                        c = 0
+                                    if (text[escapt_char_index:escapt_char_index+3] in ['30m','31m','32m','33m','34m','35m','36m','37m','90m','91m','92m','93m','94m','95m','96m','97m','40m','41m','42m','43m','44m','45m','46m','47m']) or (text[escapt_char_index:escapt_char_index+4] in ['100m', '101m', '102m', '103m', '104m', '105m', '106m', '107m']):
+                                        escape_character = 0
                                     else:
-                                        c = 1
+                                        escape_character = 1
                                 except:
                                     pass   
                             else :
-                                j = i
+                                temp_string = current_char
                                 x += 1
                                 if x == get_terminal_width():
                                     x = 0
                                     y += 1
-                                if c:
-                                    printrgb(i,foreground_color=get_color(self.angle + x * 5 + y * 7),end = '',file = file,swap_fbc = swap_fbc)
+                                if escape_character:
+                                    printrgb(current_char,foreground_color=get_color(self.angle + x * 5 + y * 7),end = '',file = file,swap_fbc = swap_fbc)
                                 else:
-                                    print(i,end = '',file = file)
+                                    print(current_char,end = '',file = file)
                                 k = 0
                         elif k > 1 :
-                            if 64 <= ord(i) <= 126:
-                                j += i
-                                if c:
-                                    printrgb(j,foreground_color=get_color(self.angle + x * 5 + y * 7),end = '',file = file,swap_fbc = swap_fbc)
+                            if 64 <= ord(current_char) <= 126:
+                                temp_string += current_char
+                                if escape_character:
+                                    printrgb(temp_string,foreground_color=get_color(self.angle + x * 5 + y * 7),end = '',file = file,swap_fbc = swap_fbc)
                                 else:
-                                    print(i,end = '',file = file)
-                                j = ''
+                                    print(current_char,end = '',file = file)
+                                temp_string = ''
                                 k = 0
                             else :
-                                j += i
-                        elif i != '\n' :
-                            if i != ' ':
-                                if c:
-                                    printrgb(i,foreground_color=get_color(self.angle + x * 5 + y * 7),end = '',file = file,swap_fbc = swap_fbc)
+                                temp_string += current_char
+                        elif current_char != '\n' :
+                            if current_char != ' ':
+                                if escape_character:
+                                    printrgb(current_char,foreground_color=get_color(self.angle + x * 5 + y * 7),end = '',file = file,swap_fbc = swap_fbc)
                                 else:
-                                    print(i,end = '',file = file)
+                                    print(current_char,end = '',file = file)
                             else:
-                                if c:
-                                    printrgb(i,foreground_color=get_color(self.angle + x * 5 + y * 7),end = '',file = file)
+                                if escape_character:
+                                    printrgb(current_char,foreground_color=get_color(self.angle + x * 5 + y * 7),end = '',file = file)
                                 else:
-                                    print(i,end = '',file = file)
+                                    print(current_char,end = '',file = file)
                             x += 1
                             if x == get_terminal_width():
                                 x = 0
@@ -128,59 +128,59 @@ class printrgb:
                 elif angle_mode == 'init':
                     x = 0
                     y = 0
-                    j = ''
+                    temp_string = ''
                     k = 0
-                    p = 0
-                    c = 1
-                    for i in text:
-                        p += 1
-                        if i == '':
-                            j += i
+                    escapt_char_index = 0
+                    escape_character = 1
+                    for current_char in text:
+                        escapt_char_index += 1
+                        if current_char == '':
+                            temp_string += current_char
                             k = 1
                         elif k == 1:
-                            if i == '[':
-                                j += i
+                            if current_char == '[':
+                                temp_string += current_char
                                 k = 2
                                 try:
-                                    if (text[p:p+3] in ['30m','31m','32m','33m','34m','35m','36m','37m','90m','91m','92m','93m','94m','95m','96m','97m','40m','41m','42m','43m','44m','45m','46m','47m']) or (text[p:p+4] in ['100m', '101m', '102m', '103m', '104m', '105m', '106m', '107m']):
-                                        c = 0
+                                    if (text[escapt_char_index:escapt_char_index+3] in ['30m','31m','32m','33m','34m','35m','36m','37m','90m','91m','92m','93m','94m','95m','96m','97m','40m','41m','42m','43m','44m','45m','46m','47m']) or (text[escapt_char_index:escapt_char_index+4] in ['100m', '101m', '102m', '103m', '104m', '105m', '106m', '107m']):
+                                        escape_character = 0
                                     else:
-                                        c = 1
+                                        escape_character = 1
                                 except:
                                     pass   
                             else :
-                                j = i
+                                temp_string = current_char
                                 x += 1
                                 if x == get_terminal_width():
                                     x = 0
                                     y += 1
-                                if c:
-                                    printrgb(i,foreground_color=get_color(x * 5 + y * 7),end = '',file = file,swap_fbc = swap_fbc)
+                                if escape_character:
+                                    printrgb(current_char,foreground_color=get_color(x * 5 + y * 7),end = '',file = file,swap_fbc = swap_fbc)
                                 else:
-                                    print(i,end = '',file = file)
+                                    print(current_char,end = '',file = file)
                                 k = 0
                         elif k > 1 :
-                            if 64 <= ord(i) <= 126:
-                                j += i
-                                if c:
-                                    printrgb(j,foreground_color=get_color(x * 5 + y * 7),end = '',file = file,swap_fbc = swap_fbc)
+                            if 64 <= ord(current_char) <= 126:
+                                temp_string += current_char
+                                if escape_character:
+                                    printrgb(temp_string,foreground_color=get_color(x * 5 + y * 7),end = '',file = file,swap_fbc = swap_fbc)
                                 else:
-                                    print(i,end = '',file = file)
-                                j = ''
+                                    print(current_char,end = '',file = file)
+                                temp_string = ''
                                 k = 0
                             else :
-                                j += i
-                        elif i != '\n' :
-                            if i != ' ':
-                                if c:
-                                    printrgb(i,foreground_color=get_color(x * 5 + y * 7),end = '',file = file,swap_fbc = swap_fbc)
+                                temp_string += current_char
+                        elif current_char != '\n' :
+                            if current_char != ' ':
+                                if escape_character:
+                                    printrgb(current_char,foreground_color=get_color(x * 5 + y * 7),end = '',file = file,swap_fbc = swap_fbc)
                                 else:
-                                    print(i,end = '',file = file)
+                                    print(current_char,end = '',file = file)
                             else:
-                                if c:
-                                    printrgb(i,foreground_color=get_color( x * 5 + y * 7),end = '',file = file)
+                                if escape_character:
+                                    printrgb(current_char,foreground_color=get_color( x * 5 + y * 7),end = '',file = file)
                                 else:
-                                    print(i,end = '',file = file)
+                                    print(current_char,end = '',file = file)
                             x += 1
                             if x == get_terminal_width():
                                 x = 0
@@ -194,59 +194,59 @@ class printrgb:
                     angle = random.randint(0,359)
                     x = 0
                     y = 0
-                    j = ''
+                    temp_string = ''
                     k = 0
-                    p = 0
-                    c = 1
-                    for i in text:
-                        p += 1
-                        if i == '':
-                            j += i
+                    escapt_char_index = 0
+                    escape_character = 1
+                    for current_char in text:
+                        escapt_char_index += 1
+                        if current_char == '':
+                            temp_string += current_char
                             k = 1
                         elif k == 1:
-                            if i == '[':
-                                j += i
+                            if current_char == '[':
+                                temp_string += current_char
                                 k = 2
                                 try:
-                                    if (text[p:p+3] in ['30m','31m','32m','33m','34m','35m','36m','37m','90m','91m','92m','93m','94m','95m','96m','97m','40m','41m','42m','43m','44m','45m','46m','47m']) or (text[p:p+4] in ['100m', '101m', '102m', '103m', '104m', '105m', '106m', '107m']):
-                                        c = 0
+                                    if (text[escapt_char_index:escapt_char_index+3] in ['30m','31m','32m','33m','34m','35m','36m','37m','90m','91m','92m','93m','94m','95m','96m','97m','40m','41m','42m','43m','44m','45m','46m','47m']) or (text[escapt_char_index:escapt_char_index+4] in ['100m', '101m', '102m', '103m', '104m', '105m', '106m', '107m']):
+                                        escape_character = 0
                                     else:
-                                        c = 1
+                                        escape_character = 1
                                 except:
                                     pass                                   
                             else :
-                                j = i
+                                temp_string = current_char
                                 x += 1
                                 if x == get_terminal_width():
                                     x = 0
                                     y += 1
-                                if c:
-                                    printrgb(i,foreground_color=get_color(angle + x * 5 + y * 7),end = '',file = file,swap_fbc = swap_fbc)
+                                if escape_character:
+                                    printrgb(current_char,foreground_color=get_color(angle + x * 5 + y * 7),end = '',file = file,swap_fbc = swap_fbc)
                                 else:
-                                    print(i,end = '',file = file)
+                                    print(current_char,end = '',file = file)
                                 k = 0
                         elif k > 1 :
-                            if 64 <= ord(i) <= 126:
-                                j += i
-                                if c:
-                                    printrgb(j,foreground_color=get_color(angle + x * 5 + y * 7),end = '',file = file,swap_fbc = swap_fbc)
+                            if 64 <= ord(current_char) <= 126:
+                                temp_string += current_char
+                                if escape_character:
+                                    printrgb(temp_string,foreground_color=get_color(angle + x * 5 + y * 7),end = '',file = file,swap_fbc = swap_fbc)
                                 else:
-                                    print(j,end = '',file = file)
-                                j = ''
+                                    print(temp_string,end = '',file = file)
+                                temp_string = ''
                                 k = 0
                             else :
-                                j += i
-                        elif i != '\n' :
-                            if i != ' ':
-                                if c:
-                                    printrgb(i,foreground_color=get_color(angle + x * 5 + y * 7),end = '',file = file,swap_fbc = swap_fbc)
+                                temp_string += current_char
+                        elif current_char != '\n' :
+                            if current_char != ' ':
+                                if escape_character:
+                                    printrgb(current_char,foreground_color=get_color(angle + x * 5 + y * 7),end = '',file = file,swap_fbc = swap_fbc)
                                 else:
-                                    print(i,end = '',file = file)
+                                    print(current_char,end = '',file = file)
                             else:
-                                if c:
-                                    printrgb(i,foreground_color=get_color(angle + x * 5 + y * 7),end = '',file = file)
+                                if escape_character:
+                                    printrgb(current_char,foreground_color=get_color(angle + x * 5 + y * 7),end = '',file = file)
                                 else:
-                                    print(i,end = '',file = file)
+                                    print(current_char,end = '',file = file)
                             x += 1
                             if x == get_terminal_width():
                                 x = 0
