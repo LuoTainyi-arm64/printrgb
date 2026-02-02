@@ -11,7 +11,7 @@ class printrgb:
         background_color: list[int] | tuple[int, int, int] | None = None,
         sep: str = " ",
         rainbow: bool = False,
-        angle_mode: Literal['inner', 'init', 'random'] = 'random',
+        angle_mode: Literal["inner", "init", "random"] = "random",
         end: str = "\n",
         file: TextIO | Any | None = None,
         get_color: Callable[[int], tuple[int, int, int]] | None = None,
@@ -19,5 +19,3 @@ class printrgb:
         swap_fbc: bool = False,
         allow_rainbow_blank: bool = False,
     ) -> None: ...
-
-

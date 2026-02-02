@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "printrgb"
-version = "1.2.2"
+version = "1.2.3"
 description = "Print rainbow text in terminal with true-color"
 readme = "README.md"
 license = {file = "LICENSE"}
